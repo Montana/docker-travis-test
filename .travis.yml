@@ -1,0 +1,17 @@
+---
+language: shell
+
+services:
+  - docker
+  - postgresql
+  - redis
+
+env:
+  global:
+    - MY_ENV_VARIABLE=DOCKER_HUB_ENV_VARS
+
+script: 
+        - echo "Building Docker Image..."
+        - docker build -t travisci/ci-garnet .
+        - echo "Docker Image Built Successfully"
+install: skip 
